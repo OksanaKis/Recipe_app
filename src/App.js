@@ -7,6 +7,7 @@ function App() {
   const APP_KEY = "48ed43236cc51c9847b294088f2146c6";
 
   const [recipes, setRecipes] = useState([]);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     console.log('Effect has been run');
@@ -21,15 +22,20 @@ function App() {
     console.log(data.hits)
   }
 
+  const updateSearch = (event) => {
+    setSearch(event.target.value)
+  }
+
   return (
     <div className="App">
       <div><h1>FIND YOUR RECIPE!</h1></div>
       <form className="search-form">
-        <input className="search-bar" type="text" />
+        <input className="search-bar" type="text" value={search} onChange={updateSearch}/>
         <button className="search-button" type="submit"></button>
       </form>
       {recipes.map(recipe => (
         <Recipe 
+        key={recipe.recipe.label}
         title={recipe.recipe.label}
         calories={recipe.recipe.calories}
         image={recipe.recipe.image}
