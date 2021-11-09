@@ -9,7 +9,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Recipe Food</h1>
+      <div><h1>FIND YOUR RECIPE!</h1></div>
+      <form className="search-form">
+        <input className="search-bar" type="text" />
+        <button className="search-button" type="submit"></button>
+      </form>
     </div>
   );
 }
