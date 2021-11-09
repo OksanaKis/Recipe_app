@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import Recipe from './Recipe';
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
     const data = await response.json();
     // console.log(data.hits)
     setRecipes(data.hits);
+    console.log(data.hits)
   }
 
   return (
@@ -26,6 +28,9 @@ function App() {
         <input className="search-bar" type="text" />
         <button className="search-button" type="submit"></button>
       </form>
+      {recipes.map(recipe => (
+        <Recipe />
+      ))}
     </div>
   );
 }
